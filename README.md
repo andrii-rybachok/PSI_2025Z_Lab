@@ -1,5 +1,12 @@
-## Zadanie 1.1 – Komunikacja UDP
+# Zadanie 1.1 – Komunikacja UDP
+## Opis projektu
+Projekt obejmuje dwa programy: **serwer** i **klient**, komunikujące się przy użyciu protokołu **UDP**.  
+Celem projektu jest eksperymentalne wyznaczenie maksymalnego rozmiaru datagramu UDP oraz pomiar czasu RTT (Round Trip Time) między wysłaniem a odebraniem potwierdzenia.
 
+Dostarczone są dwie konfiguracje:  
+1. **Serwer w C, klient w Pythonie**  
+2. **Serwer w Pythonie, klient w C** 
+## Uruchomienie aplikacji
 ### Konfiguracja 1
 #### Serwer
 - docker run --network-alias serverc --name z35_zad1_serverc_kont --network z35_network z35_zad1_serverc
