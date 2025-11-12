@@ -7,7 +7,6 @@ SERVER_PORT = int(sys.argv[1] if len(sys.argv) > 1 else 12345)
 BUFFER_SIZE = 65507
 REPLY = b"ACK"
 
-# Utworzenie gniazda UDP
 sock = socket(AF_INET, SOCK_DGRAM)
 sock.bind((HOST, SERVER_PORT))
 
