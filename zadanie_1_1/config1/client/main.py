@@ -32,11 +32,9 @@ with socket.socket(socket.AF_INET, socket.SOCK_DGRAM) as s:
                 print("Niepoprawna odpowiedź")
                 break
         except socket.timeout:
-            print(f"Timeout przy rozmiarze {int(data_size)} bajtów – przekroczony maksymalny rozmiar datagramu")
+            print(f"Timeout przy rozmiarze {int(data_size)} bajtów")
             break
 
 print("\nPodsumowanie (Rozmiar bajtów : RTT ms):")
 for size, rtt in zip(sizes, times):
     print(f"{size} : {rtt:.3f}")
-
-print("\nClient finished.")

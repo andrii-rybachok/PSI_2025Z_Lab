@@ -61,7 +61,7 @@ int main(int argc, char *argv[]) {
         if (recv_len > 0) {
             double rtt = (end.tv_sec - start.tv_sec) * 1000.0
                          + (end.tv_usec - start.tv_usec) / 1000.0;
-            printf("%zu bajtów OK, RTT = %.3f ms\n", size, rtt);
+            printf("%zu bajtów, RTT = %.3f ms\n", size, rtt);
             power *= 2;
             size = power - 1 > MAX_SIZE ? MAX_SIZE : power - 1;
         } else {
