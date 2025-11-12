@@ -1,0 +1,5 @@
+FROM gcc:4.9
+COPY . /client
+WORKDIR /client/
+RUN gcc -o main main.c
+ENTRYPOINT ["./main"]
