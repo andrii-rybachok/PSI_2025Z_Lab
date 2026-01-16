@@ -1,0 +1,26 @@
+services:
+  server:
+    build: .
+    container_name: mini_tls_server
+    command: ["sh", "-c", "python -m app.server --host 0.0.0.0 --port ${PORT:-12345} --max-clients ${MAX_CLIENTS:-5}"]
+    ports:
+      - "${PORT:-12345}:${PORT:-12345}"
+    networks:
+      - mini_tls_net
+    stdin_open: true
+    tty: true
+
+  client:
+    build: .
+    container_name: mini_tls_client
+    command: ["sh", "-c", "python -m app.client --host server --port ${PORT:-12345}"]
+    depends_on:
+      - server
+    networks:
+      - mini_tls_net
+    stdin_open: true
+    tty: true
+
+networks:
+  mini_tls_net:
+    driver: bridge
