@@ -68,7 +68,8 @@ python -m app.manual_decrypt \
 ### Serwer
 W jednym terminalu:
 ```bash
-MAX_CLIENTS=5 PORT=12345 docker compose up --build server
+MAX_CLIENTS=5 PORT=12345 docker compose up -d --build server
+docker attach mini_tls_server
 ```
 
 ### Klient
