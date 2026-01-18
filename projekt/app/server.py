@@ -165,10 +165,9 @@ class MiniTLSServer:
             send_json(state.sock, out)
         state.channel = None
         state.dh_p = None
-        print(f"[server] END_SESSION sent to client#{state.client_id} -> session reset")
+        print(f"[server] END_SESSION sent to client#{state.client_id} - session reset")
 
     def _admin_loop(self) -> None:
-        """Server-side CLI."""
         help_text = (
             "Commands:\n"
             "  list                 - show connected clients\n"

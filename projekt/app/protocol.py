@@ -5,7 +5,6 @@ from typing import Any, Dict, Optional
 
 
 def send_json(sock: socket.socket, obj: Dict[str, Any]) -> None:
-    """Send a single length-prefixed JSON message."""
     data = json.dumps(obj, separators=(",", ":")).encode("utf-8")
     sock.sendall(struct.pack("!I", len(data)) + data)
 
@@ -21,7 +20,6 @@ def _recv_exact(sock: socket.socket, n: int) -> bytes:
 
 
 def recv_json(sock: socket.socket) -> Dict[str, Any]:
-    """Receive a single length-prefixed JSON message."""
     header = _recv_exact(sock, 4)
     (length,) = struct.unpack("!I", header)
     if length <= 0 or length > 10_000_000:
