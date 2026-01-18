@@ -5,12 +5,6 @@ from .crypto import b64d, b64e, mac_tag, xor_stream
 
 
 class SecureChannel:
-    """Minimal 'record layer' implementing Encrypt-then-MAC.
-
-    - inner payload is JSON (UTF-8)
-    - encryption is XOR with repeated key (simple)
-    - MAC is HMAC-SHA256 over ciphertext
-    """
 
     def __init__(self, enc_key: bytes, mac_key: Optional[bytes], use_mac: bool = True):
         self.enc_key = enc_key
