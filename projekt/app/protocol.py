@@ -46,6 +46,7 @@ def make_secure(ciphertext_b64: str, mac_b64: Optional[str]) -> Dict[str, Any]:
 def parse_int_field(obj: Dict[str, Any], field: str) -> int:
     if field not in obj:
         raise ValueError(f"missing field: {field}")
+    
     val = obj[field]
     if not isinstance(val, int):
         raise ValueError(f"field {field} must be int")

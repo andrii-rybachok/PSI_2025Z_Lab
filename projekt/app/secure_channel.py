@@ -5,10 +5,10 @@ from .crypto import b64d, b64e, mac_tag, xor_stream
 
 
 class SecureChannel:
-
     def __init__(self, enc_key: bytes, mac_key: Optional[bytes], use_mac: bool = True):
         self.enc_key = enc_key
         self.mac_key = mac_key
+        
         self.use_mac = use_mac
         if self.use_mac and not self.mac_key:
             raise ValueError("MAC enabled but mac_key is missing")

@@ -38,6 +38,7 @@ class MiniTLSServer:
         self._clients: Dict[int, ClientState] = {}
         self._clients_lock = threading.Lock()
         self._next_id = 1
+        
         self._running = threading.Event()
         self._running.set()
 
